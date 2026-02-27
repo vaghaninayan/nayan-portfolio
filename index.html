@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nayan Vaghani — App & Web Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #2d6a4f;
+      --primary-light: #52b788;
+      --primary-pale: #d8f3dc;
+      --accent: #1b4332;
+      --bg: #ffffff;
+      --bg2: #f0faf4;
+      --text: #1a1a2e;
+      --muted: #555;
+      --border: #b7e4c7;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 10vw;
+      background: var(--bg);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 10vw;
+      gap: 4rem;
+      background: var(--bg);
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-greeting {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-name {
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--primary);
+      margin-bottom: 2rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.75rem 1.8rem;
+      border-radius: 2rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border: 2px solid var(--primary);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .hero-socials {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      text-decoration: none;
+      color: var(--primary);
+      transition: all 0.2s;
+    }
+
+    .social-icon:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .hero-photo-wrap {
+      flex-shrink: 0;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: var(--primary-pale);
+      border: 5px solid var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      box-shadow: 0 8px 30px rgba(45, 106, 79, 0.15);
+    }
+
+    /* ── SCROLL ARROW ── */
+    .scroll-down {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .scroll-arrow {
+      font-size: 1.4rem;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(6px)
+      }
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 5rem 10vw;
+    }
+
+    .section-sub {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 3rem;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+      margin-top: 0.6rem;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--bg2);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .about-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .about-card-icon {
+      font-size: 1.8rem;
+    }
+
+    .about-card h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .about-card p {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .about-text p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: var(--primary-pale);
+      color: var(--primary);
+      border: 1px solid var(--border);
+    }
+
+    /* ── SKILLS ── */
+    #skills {
+      background: var(--bg);
+    }
+
+    .skills-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .skills-group h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--primary-pale);
+    }
+
+    .skills-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .skill-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .skill-check {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: var(--primary-pale);
+      border: 2px solid var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .skill-info {
+      flex: 1;
+    }
+
+    .skill-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .skill-level {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience {
+      background: var(--bg2);
+    }
+
+    .exp-timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .exp-timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .exp-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 4px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid var(--primary-pale);
+    }
+
+    .exp-period {
+      font-size: 0.75rem;
+      color: var(--primary);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .exp-role {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .exp-company {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .exp-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .exp-tags {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-top: 0.8rem;
+    }
+
+    .exp-tag {
+      font-size: 0.72rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      background: var(--primary-pale);
+      color: var(--primary);
+      border: 1px solid var(--border);
+    }
+
+    /* ── PROJECTS ── */
+    #projects {
+      background: var(--bg);
+    }
+
+    .proj-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem 2.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+      max-width: 800px;
+    }
+
+    .proj-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(45, 106, 79, 0.12);
+    }
+
+    .proj-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.8rem;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .proj-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.8rem;
+    }
+
+    .proj-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .proj-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+    }
+
+    .proj-tag {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: var(--primary-pale);
+      color: var(--primary);
+      border: 1px solid var(--border);
+    }
+
+    .proj-highlight {
+      margin-top: 1.2rem;
+      padding: 1rem 1.2rem;
+      background: var(--primary-pale);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .proj-highlight-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.6rem;
+    }
+
+    .proj-list {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.9;
+      padding-left: 1.2rem;
+    }
+
+    .proj-list li {
+      margin-bottom: 0.2rem;
+    }
+
+    /* ── EDUCATION ── */
+    #education {
+      background: var(--bg2);
+    }
+
+    .edu-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      max-width: 700px;
+    }
+
+    .edu-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem 2rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s;
+    }
+
+    .edu-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .edu-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      flex-shrink: 0;
+      background: var(--primary-pale);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .edu-degree {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .edu-school {
+      font-size: 0.82rem;
+      color: var(--primary);
+      margin-top: 0.2rem;
+      font-weight: 500;
+    }
+
+    .edu-meta {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 0.6rem;
+      align-items: center;
+    }
+
+    .edu-year {
+      font-size: 0.72rem;
+      color: var(--muted);
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      padding: 0.15rem 0.6rem;
+      border-radius: 6px;
+    }
+
+    .edu-status {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.6rem;
+      border-radius: 6px;
+    }
+
+    .status-active {
+      background: #d8f3dc;
+      color: var(--primary);
+      border: 1px solid var(--border);
+    }
+
+    .status-done {
+      background: #e9f5db;
+      color: #386641;
+      border: 1px solid #b5d99c;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--bg);
+      text-align: center;
+    }
+
+    .contact-inner {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .contact-inner .section-title::after {
+      margin: 0.6rem auto 0;
+    }
+
+    .contact-inner p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      text-align: left;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s;
+    }
+
+    .contact-row:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .contact-row:hover .cr-label {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .cr-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      background: var(--primary-pale);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+
+    .contact-row:hover .cr-icon {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: transparent;
+    }
+
+    .cr-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .cr-value {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: var(--bg2);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 5vw;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        padding: 1rem 5vw;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      #hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 3rem 5vw;
+        gap: 2rem;
+      }
+
+      .hero-btns,
+      .hero-socials {
+        justify-content: center;
+      }
+
+      .hero-photo-wrap {
+        width: 200px;
+        height: 200px;
+        font-size: 4rem;
+      }
+
+      section {
+        padding: 3.5rem 5vw;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Nayan Vaghani</div>
+    <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-text">
+      <p class="hero-greeting">Hello, I'm</p>
+      <h1 class="hero-name">Nayan Vaghani</h1>
+      <p class="hero-title">App Developer & Web Developer</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-primary">Contact Info</a>
+        <a href="#" class="btn btn-outline" download>Download Resume</a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://www.linkedin.com/in/nayan-vaghani-0a5a10210/" target="_blank" class="social-icon"
+          title="LinkedIn">in</a>
+        <a href="mailto:nayanvaghani84@gmail.com" class="social-icon" title="Email">✉</a>
+
+      </div>
+    </div>
+    <div class="hero-photo-wrap">👨‍💻</div>
+  </section>
+
+  <div class="scroll-down">
+    <span class="scroll-arrow">↓</span>
+    Get To Know More
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-sub">Get To Know More</p>
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-cards">
+        <div class="about-card">
+          <div class="about-card-icon">💼</div>
+          <div>
+            <h4>Experience</h4>
+            <p>2+ years · App & Web Developer</p>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">🎓</div>
+          <div>
+            <h4>Education</h4>
+            <p>Bachelor – B.C.A.<br />Master – M.Sc.(CS) · ongoing</p>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">📍</div>
+          <div>
+            <h4>Location</h4>
+            <p>Berlin, Germany 🇩🇪</p>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">🌐</div>
+          <div>
+            <h4>Languages</h4>
+            <p>Gujarati · Hindi · English</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <p>I'm <strong>Nayan Ghanshyambhai Vaghani</strong>, an <strong>App Developer & Web Developer</strong> based in
+          Berlin, Germany. With 2 years of professional experience at Evenmore Infotech Pvt. Ltd., I have built web
+          portals and mobile applications that solve real-world problems.</p>
+        <p>I hold a <strong>Bachelor of Computer Applications</strong> from Veer Narmad South Gujarat University and I'm
+          currently pursuing a <strong>Master's in Computer Science</strong> at IU International University of Applied
+          Sciences, with a focus on Software Development and Artificial Intelligence.</p>
+        <p>I am passionate about <strong>Natural Language Processing</strong> and <strong>Deep Learning</strong> and
+          love applying these interests to build impactful digital solutions. Outside of tech, I'm an active
+          sportsperson who has competed in cricket, kabaddi, and the Khel Mahakumbh Championship.</p>
+        <div class="about-tags">
+          <span class="tag">Problem Solving</span>
+          <span class="tag">Teamwork</span>
+          <span class="tag">Adaptability</span>
+          <span class="tag">Time Management</span>
+          <span class="tag">Decision Making</span>
+          <span class="tag">Flexibility</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <p class="section-sub">Explore My</p>
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-columns">
+      <div class="skills-group">
+        <h3>💻 Web & App Development</h3>
+        <div class="skills-list">
+          <div class="skill-row">
+            <div class="skill-check">✓</div>
+            <div class="skill-info">
+              <div class="skill-name">Web Development</div>
+              <div class="skill-level">Experienced</div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-check">✓</div>
+            <div class="skill-info">
+              <div class="skill-name">Android & Mobile Apps</div>
+              <div class="skill-level">Experienced</div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-check">✓</div>
+            <div class="skill-info">
+              <div class="skill-name">HTML / CSS</div>
+              <div class="skill-level">Experienced</div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-check">✓</div>
+            <div class="skill-info">
+              <div class="skill-name">Database Management</div>
+              <div class="skill-level">Experienced</div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-check">✓</div>
+            <div class="skill-info">
+              <div class="skill-name">Security Systems</div>
+              <div class="skill-level">Experienced</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="skills-group">
+        <h3>🧠 AI & Others</h3>
+        <div class="skills-list">
+          <div class="skill-row">
+            <div class="skill-check">✓</div>
+            <div class="skill-info">
+              <div class="skill-name">Natural Language Processing</div>
+              <div class="skill-level">Intermediate</div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-check">✓</div>
+            <div class="skill-info">
+              <div class="skill-name">Deep Learning</div>
+              <div class="skill-level">Intermediate</div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-check">✓</div>
+            <div class="skill-info">
+              <div class="skill-name">Artificial Intelligence</div>
+              <div class="skill-level">Intermediate</div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-check">✓</div>
+            <div class="skill-info">
+              <div class="skill-name">Software Development</div>
+              <div class="skill-level">Experienced</div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-check">✓</div>
+            <div class="skill-info">
+              <div class="skill-name">Git</div>
+              <div class="skill-level">Experienced</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <p class="section-sub">Explore My</p>
+    <h2 class="section-title">Experience</h2>
+    <div class="exp-timeline">
+      <div class="exp-item">
+        <div class="exp-period">Apr 2023 – Mar 2024 · 1 yr</div>
+        <div class="exp-role">Web Developer</div>
+        <div class="exp-company">Evenmore Infotech Pvt. Ltd. — Surat, Gujarat, India</div>
+        <p class="exp-desc">Worked as a full-time Web Developer contributing to web and mobile application projects.
+          Focused on Android and mobile application development alongside core web solutions.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">Web Development</span>
+          <span class="exp-tag">Android</span>
+          <span class="exp-tag">Mobile Apps</span>
+          <span class="exp-tag">Full-time</span>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-period">Apr 2022 – Apr 2023 · 1 yr 1 mo</div>
+        <div class="exp-role">Junior Web Developer</div>
+        <div class="exp-company">Evenmore Infotech Pvt. Ltd. — Surat, Gujarat, India</div>
+        <p class="exp-desc">Started professional career building web-based applications and gaining hands-on experience
+          in software development workflows and project delivery.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">Web Development</span>
+          <span class="exp-tag">Junior Level</span>
+          <span class="exp-tag">Full-time</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="section-sub">Browse My Recent</p>
+    <h2 class="section-title">Projects</h2>
+    <div style="display:flex;flex-direction:column;gap:1.5rem;max-width:800px;">
+
+      <!-- Project 1 -->
+      <div class="proj-card">
+        <span class="proj-badge">Web Portal</span>
+        <h3>Building Security Web Portal</h3>
+        <p>A comprehensive web-based digital controller for building security management. The portal handles entry/exit
+          tracking of all persons, resident and servant information management, new resident onboarding, and rented flat
+          management. Residents receive automated notifications for in/out entries, building balance updates, expense
+          tracking, and committee updates — all through one centralised platform.</p>
+        <div class="proj-highlight">
+          <p class="proj-highlight-title">✅ Key Features</p>
+          <ul class="proj-list">
+            <li>Entry/exit tracking for residents, servants, and visitors</li>
+            <li>Automated resident notifications for building updates</li>
+            <li>Building balance and expense management</li>
+            <li>Committee member management portal</li>
+          </ul>
+        </div>
+        <div class="proj-tags">
+          <span class="proj-tag">Security System</span>
+          <span class="proj-tag">Resident Management</span>
+          <span class="proj-tag">Digital Controller</span>
+          <span class="proj-tag">Web App</span>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="proj-card">
+        <span class="proj-badge">M.Sc. Research</span>
+        <h3>AI Code Agent — Automated Code Generation & Self-Debugging</h3>
+        <p>An autonomous AI-powered Code Generation and Self-Debugging Agent developed as part of M.Sc. in Computer
+          Science at IU International University of Applied Sciences. The agent accepts natural language instructions,
+          automatically generates executable Python code, runs it inside a secure sandbox, detects runtime/syntax
+          errors, and iteratively self-corrects using reinforcement feedback loops — with no human intervention.</p>
+        <div class="proj-highlight">
+          <p class="proj-highlight-title">🔥 Key Achievements</p>
+          <ul class="proj-list">
+            <li>First-pass accuracy of <strong>54%</strong>, overall success rate of <strong>78%</strong> after repair
+              iterations</li>
+            <li>Successfully blocked 9 unsafe code attempts including unauthorized filesystem access</li>
+            <li>Iterative repair resolved 18 out of 23 initially failed tasks (78% repair rate)</li>
+            <li>Average solution time of 5.1 seconds — feasible for real-world deployment</li>
+          </ul>
+        </div>
+        <div class="proj-tags">
+          <span class="proj-tag">Python</span>
+          <span class="proj-tag">LLM / OpenAI API</span>
+          <span class="proj-tag">NLP</span>
+          <span class="proj-tag">AI Agent</span>
+          <span class="proj-tag">Sandbox Execution</span>
+          <span class="proj-tag">Self-Debugging</span>
+          <span class="proj-tag">Deep Learning</span>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="proj-card">
+        <span class="proj-badge">M.Sc. Research</span>
+        <h3>Automated Waste Classification System (Deep Learning)</h3>
+        <p>Developed and experimentally validated an AI-powered Automated Waste Classification Analysis (AWCA) system to
+          improve recycling efficiency through intelligent image classification. Built an end-to-end deep learning
+          pipeline using TensorFlow and Keras, integrating data preprocessing, augmentation, model training, evaluation,
+          and performance benchmarking across multiple architectures.</p>
+        <div class="proj-highlight">
+          <p class="proj-highlight-title">🔥 Key Achievements</p>
+          <ul class="proj-list">
+            <li>Achieved <strong>91.1% classification accuracy</strong> using ResNet50 transfer learning</li>
+            <li>Improved performance by <strong>~21%</strong> over baseline CNN through transfer learning</li>
+            <li>Benchmarked Baseline CNN vs MobileNetV2 vs ResNet50 under identical conditions</li>
+            <li>Integrated multiple public datasets (TrashNet, TACO) with stratified 70/15/15 split</li>
+          </ul>
+        </div>
+        <div class="proj-tags">
+          <span class="proj-tag">Python</span>
+          <span class="proj-tag">TensorFlow</span>
+          <span class="proj-tag">Keras</span>
+          <span class="proj-tag">ResNet50</span>
+          <span class="proj-tag">MobileNetV2</span>
+          <span class="proj-tag">Scikit-learn</span>
+          <span class="proj-tag">Deep Learning</span>
+          <span class="proj-tag">Transfer Learning</span>
+          <span class="proj-tag">Google Colab</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <p class="section-sub">My Academic</p>
+    <h2 class="section-title">Education</h2>
+    <div class="edu-cards">
+      <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div>
+          <div class="edu-degree">Master of Computer Science (M.Sc.)</div>
+          <div class="edu-school">IU International University of Applied Sciences</div>
+          <div class="edu-meta">
+            <span class="edu-year">Sep 2024 – Nov 2026</span>
+            <span class="edu-status status-active">In Progress</span>
+          </div>
+          <div style="font-size:0.78rem;color:var(--muted);margin-top:0.4rem;">Software Development · Artificial
+            Intelligence</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-icon">💻</div>
+        <div>
+          <div class="edu-degree">Bachelor of Computer Applications (B.C.A.)</div>
+          <div class="edu-school">Veer Narmad South Gujarat University, Surat, India</div>
+          <div class="edu-meta">
+            <span class="edu-year">2018 – 2021</span>
+            <span class="edu-status status-done">Completed</span>
+          </div>
+          <div style="font-size:0.78rem;color:var(--muted);margin-top:0.4rem;">Android · Content Writing · Web
+            Development</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <p class="section-sub">Get In Touch</p>
+      <h2 class="section-title">Contact Me</h2>
+      <p>I'm open to new opportunities, collaborations, and conversations. Feel free to reach out anytime!</p>
+      <div class="contact-list">
+        <a href="mailto:nayanvaghani84@gmail.com" class="contact-row">
+          <div class="cr-icon">✉️</div>
+          <div>
+            <div class="cr-label">Email</div>
+            <div class="cr-value">nayanvaghani84@gmail.com</div>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/nayan-vaghani-0a5a10210/" target="_blank" class="contact-row">
+          <div class="cr-icon">💼</div>
+          <div>
+            <div class="cr-label">LinkedIn</div>
+            <div class="cr-value">nayan-vaghani-0a5a10210</div>
+          </div>
+        </a>
+        <a href="https://github.com/nayanvaghani" target="_blank" class="contact-row">
+          <div class="cr-icon">💻</div>
+          <div>
+            <div class="cr-label">GitHub</div>
+            <div class="cr-value">nayanvaghani</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; Copyright Reserved by Nayan Vaghani</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('open');
+    }
+  </script>
+</body>
+
+</html>
